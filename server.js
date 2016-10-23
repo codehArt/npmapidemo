@@ -56,16 +56,9 @@ router.get('/', function(req, res) {
 router.get('/complain', function(req, res) {
     res.json({ message: 'its done baby.....' });   
 });
-//Hello bhavik and vpul
-
-//what you have to do is that you have to analyze all data which is reauired 
-// and you have to make its json object in this file and
-// return it like router.get() or router.post() method   
 
 
-
-
-
+// user api 
 router.get('/user', function(req, res) {
     res.json({ message: 'its user' });   
 });
@@ -77,7 +70,31 @@ app.use('/api', router);
 
 
 
-//how to run this demo 
-//just open terminal within this folder and 
-//write node server.js and hit enter 
-// you can see
+//Hello bhavik and vpul
+
+// regarding our api issue over network 
+// this demo is created for accessing api's over network 
+// if you want access your api over network you have to replace just localhost with your current ip address.
+
+//--------------------------------//
+// how to run this demo 
+//--------------------------------//
+// just open terminal within this folder and 
+// write node server.js and hit enter 
+// when you run this command you can see "magic happens on port 8085"
+// if you want to access your user api (line no 68) 
+// you have to open this ( localhost:8085/api/user ) url in browser
+// and you can see output something like line no 70
+
+
+
+//--------------------------------//
+/////  create new api just
+//--------------------------------//
+// what you have to do for creating new api,
+// you have to analyze all data which is required 
+// and you have to make its json object in this file and
+// return it like router.get() or router.post() method   
+
+//--------------------------------//
+// note: post method is not yet implemented i'll updte it soon.
