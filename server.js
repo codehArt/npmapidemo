@@ -76,6 +76,40 @@ router.get('/GetAllComplain', function(req, res) {
     res.json(allcomplain);
 });
 
+router.post('/GetAllReportById', function(req, res) {
+    //res.json({ message: 'its done baby.....' });   
+    var user_id = req.body.id;
+    console.log(user_id);
+    var allReport = [];
+    allReport.push(
+		{
+			id : 1234,
+			complainId : 4321,
+			childName : "Vipul Sarvaliya",
+			actionOnAccused : "saja thai ",
+			status : "khabar nathi ",
+			report: "ae pati gyu",
+			accusedName : "badha saheb", 
+			address: "ghare thi upaido ",
+			dateTimeOfRescued : "asdasd"
+		});
+    allReport.push(
+		{
+			id : 1234,
+			complainId : 4321,
+			childName : "Vipul Sarvaliya",
+			actionOnAccused : "saja thai ",
+			status : "khabar nathi ",
+			report: "ae pati gyu",
+			accusedName : "badha saheb", 
+			address: "ghare thi upaido ",
+			dateTimeOfRescued : "asdasd"
+		});
+    res.json(allReport);
+});
+
+
+
 
 // user api 
 router.get('/user', function(req, res) {
