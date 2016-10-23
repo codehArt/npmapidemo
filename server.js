@@ -32,7 +32,7 @@ app.use('/api', router);
 
 // START THE SERVER
 // =============================================================================
-app.listen(port ,"abcd.com");
+app.listen(port);
 console.log('Magic happens on port ' + port);
 
 
@@ -56,6 +56,15 @@ router.get('/', function(req, res) {
 router.get('/complain', function(req, res) {
     res.json({ message: 'its done baby.....' });   
 });
+//Hello bhavik and vpul
+
+//what you have to do is that you have to analyze all data which is reauired 
+// and you have to make its json object in this file and
+// return it like router.get() or router.post() method   
+
+
+
+
 
 router.get('/user', function(req, res) {
     res.json({ message: 'its user' });   
@@ -65,3 +74,10 @@ router.get('/user', function(req, res) {
 // REGISTER OUR ROUTES -------------------------------
 // all of our routes will be prefixed with /api
 app.use('/api', router);
+
+
+
+//how to run this demo 
+//just open terminal within this folder and 
+//write node server.js and hit enter 
+// you can see
