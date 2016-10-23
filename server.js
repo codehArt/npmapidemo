@@ -79,17 +79,17 @@ app.use('/api', router);
 //--------------------------------//
 // how to run this demo 
 //--------------------------------//
-// just open terminal within this folder and 
-// write node server.js and hit enter 
+// just open terminal or cmd(as admin specially for bhavik) within this folder and 
+// write "node server.js" and hit enter 
 // when you run this command you can see "magic happens on port 8085"
-// if you want to access your user api (line no 68) 
-// you have to open this ( localhost:8085/api/user ) url in browser
+// if you want to access your "user" api (line no 68) 
+// you have to open this link ( localhost:8085/api/user ) in browser
 // and you can see output something like line no 70
 
 
 
 //--------------------------------//
-/////  create new api just
+/////  create new api
 //--------------------------------//
 // what you have to do for creating new api,
 // you have to analyze all data which is required 
