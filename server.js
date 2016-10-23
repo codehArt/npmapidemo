@@ -135,10 +135,13 @@ app.use('/api', router);
 // just open terminal or cmd(as admin specially for bhavik) within this folder and 
 // write "node server.js" and hit enter 
 // when you run this command you can see "magic happens on port 8085"
-// if you want to access your "user" api (line no 62) 
+//-----Get API-------------------//
+// if you want to access your "GetAllComplain" api (line no 62) 
 // you have to open this link ( localhost:8085/api/user ) in browser
-// and you can see output something like line no 63
-
+// and you can see output as json array which we made in that function.
+//-----Post API-------------------//
+//  it's done unfotunately i am not able to explain it via 
+//  comment so put it on stack.  
 
 
 //--------------------------------//
