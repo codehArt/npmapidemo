@@ -41,6 +41,7 @@ console.log('Magic happens on port ' + port);
 // =============================================================================
 var router = express.Router();              // get an instance of the express Router
 
+
 // middleware to use for all requests
 router.use(function(req, res, next) {
     // do logging
@@ -50,10 +51,11 @@ router.use(function(req, res, next) {
 
 // test route to make sure everything is working (accessed at GET http://localhost:8080/api)
 router.get('/', function(req, res) {
-    res.json({ message: 'hooray! welcome to our api!' });   
+    res.json({ message: 'its working debug your angular app' }); 
+
 });
 
-router.get('/complain', function(req, res) {
+router.get('/GetAllComplain', function(req, res) {
     res.json({ message: 'its done baby.....' });   
 });
 
@@ -96,5 +98,5 @@ app.use('/api', router);
 // and you have to make its json object in this file and
 // return it like router.get() or router.post() method   
 
-//--------------------------------//
+//****************************//
 // note: post method is not yet implemented i'll updte it soon.
