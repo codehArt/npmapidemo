@@ -79,7 +79,7 @@ router.get('/GetAllComplain', function(req, res) {
 router.post('/GetAllReportById', function(req, res) {
     //res.json({ message: 'its done baby.....' });   
     var user_id = req.body.id;
-    console.log(user_id);
+    console.log(req.body);
     var allReport = [];
     allReport.push(
 		{
