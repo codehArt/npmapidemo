@@ -49,14 +49,31 @@ router.use(function(req, res, next) {
     next(); // make sure we go to the next routes and don't stop here
 });
 
+
+
+
+
 // test route to make sure everything is working (accessed at GET http://localhost:8080/api)
 router.get('/', function(req, res) {
     res.json({ message: 'its working debug your angular app' }); 
-
 });
 
 router.get('/GetAllComplain', function(req, res) {
-    res.json({ message: 'its done baby.....' });   
+    //res.json({ message: 'its done baby.....' });   
+    var allcomplain = [];
+    allcomplain.push(
+		{
+			id : 1,
+			image : "c:/asd",
+			gpsLocation : {
+				latitude : 12.12,
+				longitude:12.21
+			},
+			userId : 12,
+			dcpuId : 123 ,
+			dateTime : "asdasd"
+		});
+    res.json(allcomplain);
 });
 
 
