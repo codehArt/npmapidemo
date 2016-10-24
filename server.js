@@ -76,10 +76,24 @@ router.get('/GetAllComplain', function(req, res) {
     res.json(allcomplain);
 });
 
+
+router.post('/RegistreComplainById',function(req, res){
+	var userId = req.body.id;
+	var childImage = req.body.image;
+	var location = { longitude : req.body.location.longitude,latitude : req.body.location.latitude};
+	var complainText = req.body.text;  
+	console.log(userId);
+	console.log(childImage);
+	console.log(location);
+	console.log(complainText);
+	res.json("Complain Submitted Successfully.");
+});
+
 router.post('/GetAllReportById', function(req, res) {
     //res.json({ message: 'its done baby.....' });   
     var user_id = req.body.id;
     console.log(req.body);
+    console.log(user_id);
     var allReport = [];
     allReport.push(
 		{
@@ -151,6 +165,3 @@ app.use('/api', router);
 // you have to analyze all data which is required 
 // and you have to make its json object in this file and
 // return it like router.get() or router.post() method   
-
-//****************************//
-// note: post method is not yet implemented i'll updte it soon.
