@@ -7,7 +7,10 @@
 var express    = require('express');        // call express
 var app        = express();                 // define our app using express
 var bodyParser = require('body-parser');
-
+// const MongoClient = require('mongodb').MongoClient;
+// MongoClient.connect('link-to-mongodb', (err, database) => {
+//   // ... start the server
+// });
 // configure app to use bodyParser()
 // this will let us get the data from a POST
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -32,7 +35,7 @@ app.use('/api', router);
 
 // START THE SERVER
 // =============================================================================
-app.listen(port);
+app.listen(port,"0.0.0.0");
 console.log('Magic happens on port ' + port);
 
 
@@ -50,6 +53,9 @@ router.use(function(req, res, next) {
 });
 
 
+var user = {};
+
+
 
 
 
@@ -58,13 +64,13 @@ router.get('/', function(req, res) {
     res.json({ message: 'its working debug your angular app' }); 
 });
 
-router.get('/GetAllComplain', function(req, res) {
+router.get('/GetAllComplainForDCPU', function(req, res) {
     //res.json({ message: 'its done baby.....' });   
     var allcomplain = [];
     allcomplain.push(
 		{
 			id : 1,
-			image : "c:/asd",
+			image : "",
 			gpsLocation : {
 				latitude : 12.12,
 				longitude:12.21
@@ -77,17 +83,44 @@ router.get('/GetAllComplain', function(req, res) {
 });
 
 
-router.post('/RegistreComplainById',function(req, res){
-	var userId = req.body.id;
-	var childImage = req.body.image;
-	var location = { longitude : req.body.location.longitude,latitude : req.body.location.latitude};
-	var complainText = req.body.text;  
-	console.log(userId);
-	console.log(childImage);
-	console.log(location);
-	console.log(complainText);
-	res.json("Complain Submitted Successfully.");
+router.post('/RegisterUser',function(req, res){
+	
+	user.number = req.body.number;
+	user.complain = [];
+	console.log(user);
+	res.json("OK");
 });
+
+var complain = {};
+
+router.post('/RegisterComplainById',function(req, res){
+	// console.log(req.body.number);
+	console.log(req.body);
+	// complain.number = req.body.number;
+	complain.text = req.body.text;
+	//user.complain.push(req.body.number);
+	// var obj.childImage = 
+	// var userId = req.body.number;
+	// var childImage = req.body.image;
+	// var location = { longitude : req.body.location.longitude,latitude : req.body.location.latitude};
+	//var complainText = req.body.text;  
+	console.log(user);
+	// console.log(childImage);
+	// console.log(location);
+	// console.log(complainText);
+	res.json("Complain Submitted Successfully." + req.body.text);
+});
+
+
+router.post('/SetProfileById',function(req, res){
+	var userId = req.body.id;
+	var userImage = req.body.image; //TODO : save in databse based on the id
+	var userName = req.body.name;
+	//console.log(req.body);
+	var profileToReturn = {"userName" : userName, "userImage" : "image","filedComplain" : 123, "resolvedComplain" : 111 };
+	res.json(profileToReturn);
+});
+
 
 router.post('/GetAllReportById', function(req, res) {
     //res.json({ message: 'its done baby.....' });   
@@ -98,22 +131,22 @@ router.post('/GetAllReportById', function(req, res) {
     allReport.push(
 		{
 			id : 1234,
-			complainId : 4321,
-			childName : "Vipul Sarvaliya",
+			complainId : 1,
+			childName : "child 1",
 			actionOnAccused : "saja thai ",
-			status : "khabar nathi ",
-			report: "ae pati gyu",
+			status : "rescued ",
+			report: "ae che ne ek chokaro hato e he ne cha ni kitli halavato to ane ame ya cha piva jata ta pati gyu",
 			accusedName : "badha saheb", 
 			address: "ghare thi upaido ",
 			dateTimeOfRescued : "asdasd"
 		});
     allReport.push(
 		{
-			id : 1234,
-			complainId : 4321,
-			childName : "Vipul Sarvaliya",
-			actionOnAccused : "saja thai ",
-			status : "khabar nathi ",
+			id : 12345,
+			complainId : 2,
+			childName : "child 2",
+			actionOnAccused : "saja thai",
+			status : "In Progress",
 			report: "ae pati gyu",
 			accusedName : "badha saheb", 
 			address: "ghare thi upaido ",
@@ -130,7 +163,11 @@ router.get('/user', function(req, res) {
     res.json({ message: 'its user' });   
 });
 // more routes for our API will happen here
-
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 // REGISTER OUR ROUTES -------------------------------
 // all of our routes will be prefixed with /api
 app.use('/api', router);
